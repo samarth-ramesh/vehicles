@@ -1296,35 +1296,6 @@ minetest.register_entity("vehicles:jet", {
 
 
 
-minetest.register_tool("vehicles:backpack", {
-	description = S("Parachute"),
-	inventory_image = "vehicles_backpack.png",
-	wield_scale = {x = 1.5, y = 1.5, z = 1},
-	tool_capabilities = {
-		full_punch_interval = 0.7,
-		max_drop_level=1,
-		groupcaps={
-			snappy={times={[1]=2.0, [2]=1.00, [3]=0.35}, uses=30, maxlevel=3},
-		},
-		damage_groups = {fleshy=1},
-	},
-	on_use = function(item, placer, pointed_thing)
-		local dir = placer:get_look_dir()
-		local playerpos = placer:getpos()
-		local pname = placer:get_player_name()
-		local obj = minetest.env:add_entity({x=playerpos.x+0+dir.x,y=playerpos.y+1+dir.y,z=playerpos.z+0+dir.z}, "vehicles:parachute")
-		local entity = obj:get_luaentity()
-		if obj.driver and placer == obj.driver then
-			vehicles.object_detach(entity, placer, {x=1, y=0, z=1})
-		elseif not obj.driver then
-			vehicles.object_attach(entity, placer, {x=0, y=0, z=0}, true, {x=0, y=2, z=0})
-		end
-		item:take_item()
-		return item
-	end,
-})
-
-
 --wings
 --currently doesn't work
 minetest.register_entity("vehicles:wing_glider", {
