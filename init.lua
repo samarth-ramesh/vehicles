@@ -1319,43 +1319,6 @@ minetest.register_craftitem("vehicles:body", {
 	inventory_image = "vehicles_car_body.png",
 })
 
-minetest.register_craftitem("vehicles:armor", {
-	description = S("Armor plating"),
-	inventory_image = "vehicles_armor.png",
-})
-
-minetest.register_craftitem("vehicles:gun", {
-	description = S("Vehicle Gun"),
-	inventory_image = "vehicles_gun.png",
-})
-
-minetest.register_craftitem("vehicles:propeller", {
-	description = S("Propeller"),
-	inventory_image = "vehicles_propeller.png",
-})
-
-minetest.register_craftitem("vehicles:jet_engine", {
-	description = S("Jet Engine"),
-	inventory_image = "vehicles_jet_engine.png",
-})
-
-minetest.register_craft({
-	output = "vehicles:propeller",
-	recipe = {
-		{"default:steel_ingot", "", ""},
-		{"", "group:stick", ""},
-		{"", "", "default:steel_ingot"}
-	}
-})
-
-minetest.register_craft({
-	output = "vehicles:jet_engine",
-	recipe = {
-		{"", "default:steel_ingot", ""},
-		{"default:steel_ingot", "vehicles:propeller", "default:steel_ingot"},
-		{"", "default:steel_ingot", ""}
-	}
-})
 
 minetest.register_craft({
 	output = "vehicles:armor",
@@ -1399,22 +1362,6 @@ minetest.register_craft({
 		{"", "default:glass", ""},
 		{"default:glass", "default:steel_ingot", "default:glass"},
 		{"", "", ""}
-	}
-})
-
-minetest.register_craft({
-	output = "vehicles:bullet_item 5",
-	recipe = {
-		{"default:coal_lump", "default:iron_lump",},
-	}
-})
-
-minetest.register_craft({
-	output = "vehicles:missile_2_item",
-	recipe = {
-		{"", "default:steel_ingot", ""},
-		{"", "default:torch", ""},
-		{"default:stick", "default:coal_lump", "default:stick"}
 	}
 })
 
@@ -1570,69 +1517,6 @@ minetest.register_craft({
 		{"vehicles:wheel", "vehicles:engine", "vehicles:wheel"}
 	}
 })
-
-minetest.register_craft({
-	output = "vehicles:tank_spawner",
-	recipe = {
-		{"", "vehicles:gun", ""},
-		{"vehicles:armor", "vehicles:engine", "vehicles:armor"},
-		{"vehicles:wheel", "vehicles:wheel", "vehicles:wheel"}
-	}
-})
-
-minetest.register_craft({
-	output = "vehicles:tank2_spawner",
-	recipe = {
-		{"default:desert_sand", "vehicles:gun", ""},
-		{"vehicles:armor", "vehicles:engine", "vehicles:armor"},
-		{"vehicles:wheel", "vehicles:wheel", "vehicles:wheel"}
-	}
-})
-
-minetest.register_craft({
-	output = "vehicles:turret_spawner",
-	recipe = {
-		{"", "vehicles:gun", ""},
-		{"vehicles:armor", "vehicles:engine", "vehicles:armor"},
-	}
-})
-
-minetest.register_craft({
-	output = "vehicles:jet_spawner",
-	recipe = {
-		{"", "vehicles:gun", ""},
-		{"vehicles:jet_engine", "default:steel_ingot", "vehicles:jet_engine"},
-		{"", "default:steel_ingot", ""}
-	}
-})
-
-minetest.register_craft({
-	output = "vehicles:plane_spawner",
-	recipe = {
-		{"", "vehicles:propeller", ""},
-		{"default:steel_ingot", "vehicles:engine", "default:steel_ingot"},
-		{"", "default:steel_ingot", ""}
-	}
-})
-
-minetest.register_craft({
-	output = "vehicles:helicopter_spawner",
-	recipe = {
-		{"", "vehicles:propeller", ""},
-		{"vehicles:propeller", "vehicles:engine", "default:glass"},
-		{"", "default:steel_ingot", ""}
-	}
-})
-
-minetest.register_craft({
-	output = "vehicles:apache_spawner",
-	recipe = {
-		{"", "vehicles:propeller", ""},
-		{"vehicles:propeller", "vehicles:engine", "default:glass"},
-		{"", "vehicles:armor", "default:steel_ingot"}
-	}
-})
-
 minetest.register_craft({
 	output = "vehicles:lightcycle_spawner",
 	recipe = {
@@ -1694,15 +1578,6 @@ minetest.register_craft({
 	}
 })
 
-
-minetest.register_craft({
-	output = "vehicles:backpack",
-	recipe = {
-		{"group:grass", "group:grass", "group:grass"},
-		{"group:stick", "", "group:stick"},
-		{"", "group:wood", ""}
-	}
-})
 
 
 
