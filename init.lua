@@ -87,10 +87,10 @@ end
 
 
 
-minetest.register_craftitem("vehicles:bullet_item", {
-	description = S("Bullet"),
-	inventory_image = "vehicles_bullet_inv.png"
-})
+
+
+
+
 
 
 
