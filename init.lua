@@ -85,33 +85,6 @@ local function missile_on_step_auxiliary(self, obj, pos)
 end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
 minetest.register_entity("vehicles:water", {
 	visual = "sprite",
 	textures = {"vehicles_trans.png"},
@@ -246,43 +219,6 @@ minetest.register_entity("vehicles:tank2", {
 			moving_anim = {x=3, y=8},
 			stand_anim = {x=1, y=1},
 		})
-	end,
-})
-
-vehicles.register_spawner("vehicles:tank2", S("Desert Tank"), "vehicles_tank2_inv.png")
-
-minetest.register_entity("vehicles:turret", {
-	visual = "mesh",
-	mesh = "turret_gun.b3d",
-	textures = {"vehicles_turret.png"},
-	velocity = 15,
-	acceleration = -5,
-	stepheight = 1.5,
-	hp_max = 50,
-	groups = {fleshy=3, level=5},
-	physical = true,
-	collisionbox = {-0.6, 0, -0.6, 0.6, 0.9, 0.6},
-	on_rightclick = function(self, clicker)
-		if self.driver and clicker == self.driver then
-			vehicles.object_detach(self, clicker, {x=1, y=0, z=1})
-		elseif not self.driver then
-			vehicles.object_attach(self, clicker, {x=0, y=5, z=4}, true, {x=0, y=2, z=4})
-		end
-	end,
-	on_punch = vehicles.on_punch,
-	on_step = function(self, dtime)
-		self.object:setvelocity({x=0, y=-1, z=0})
-		if self.driver then
-			vehicles.object_drive(self, dtime, {
-				fixed = true,
-				shoot_y = 1.5,
-				arrow = "vehicles:bullet",
-				shoots = true,
-				reload_time = 0.2,
-			})
-			return false
-		end
-		return true
 	end,
 })
 
