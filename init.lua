@@ -150,10 +150,6 @@ minetest.register_entity("vehicles:firetruck", {
 		return vehicles.on_step(self, dtime, {
 			speed = 10,
 			decell = 0.5,
-			shoots = true,
-			arrow = "vehicles:water",
-			infinite_arrow = true,
-			reload_time = 0.2,
 			driving_sound = "engine",
 			sound_duration = 11,
 			handling = {initial=1.3, braking=2},
