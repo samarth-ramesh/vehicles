@@ -84,7 +84,7 @@ local vtimer = 0
 
 function vehicles.object_drive(entity, dtime, def)
 	--definition
-	local speed = def.speed or 10
+	local speed = def.speed or 11
 	local fixed = def.fixed or false
 	local decell = def.decell or 0.5
 	local shoots = def.shoots or false

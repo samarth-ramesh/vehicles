@@ -1217,41 +1217,6 @@ minetest.register_entity("vehicles:lightcycle2", {
 
 vehicles.register_spawner("vehicles:lightcycle2", S("Lightcycle 2"), "vehicles_lightcycle_inv2.png")
 
-minetest.register_entity("vehicles:boat", {
-	visual = "mesh",
-	mesh = "boat.b3d",
-	textures = {"vehicles_boat.png"},
-	velocity = 15,
-	acceleration = -5,
-	stepheight = 0,
-	hp_max = 200,
-	physical = true,
-	collisionbox = {-1, 0.2, -1, 1.3, 1, 1},
-	on_rightclick = function(self, clicker)
-		if self.driver and clicker == self.driver then
-			vehicles.object_detach(self, clicker, {x=1, y=0, z=1})
-		elseif not self.driver then
-			vehicles.object_attach(self, clicker, {x=0, y=5, z=4}, false, {x=0, y=2, z=4})
-		end
-	end,
-	on_punch = vehicles.on_punch,
-	on_step = function(self, dtime)
-		return vehicles.on_step(self, dtime, {
-			speed = 10,
-			decell = 0.85,
-			is_watercraft = true,
-			gravity = 0,
-			boost = true,
-			boost_duration = 10,
-			boost_effect = "vehicles_splash.png",
-			brakes = true,
-			braking_effect = "vehicles_splash.png",
-			handling = {initial=1.8, braking=2.3}
-		})
-	end,
-})
-
-vehicles.register_spawner("vehicles:boat", S("Speedboat"), "vehicles_boat_inv.png", true)
 
 minetest.register_entity("vehicles:jet", {
 	visual = "mesh",
@@ -1530,14 +1495,8 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
-	output = "vehicles:boat_spawner",
-	recipe = {
-		{"", "", ""},
-		{"default:steel_ingot", "vehicles:engine", "default:steel_ingot"},
-		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"}
-	}
-})
+
+
 
 minetest.register_craft({
 	output = "vehicles:firetruck_spawner",
