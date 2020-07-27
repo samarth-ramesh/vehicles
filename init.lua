@@ -194,7 +194,7 @@ minetest.register_entity("vehicles:geep", {
 	visual = "mesh",
 	mesh = "geep.b3d",
 	textures = {"vehicles_geep.png"},
-	velocity = 15,
+	velocity = 20,
 	acceleration = -5,
 	stepheight = 1.5,
 	hp_max = 200,
