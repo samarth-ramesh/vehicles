@@ -125,9 +125,6 @@ minetest.register_entity("vehicles:water", {
 })
 
 
-
-vehicles.register_spawner("vehicles:assaultsuit", "Assault Suit", "vehicles_assaultsuit_inv.png")
-
 minetest.register_entity("vehicles:firetruck", {
 	visual = "mesh",
 	mesh = "firetruck.b3d",
