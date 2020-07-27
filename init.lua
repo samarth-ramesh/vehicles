@@ -83,37 +83,9 @@ local function missile_on_step_auxiliary(self, obj, pos)
 		self.object:remove()
 	end
 end
-minetest.register_entity("vehicles:missile", {
-	visual = "mesh",
-	mesh = "missile.b3d",
-	textures = {"vehicles_missile.png"},
-	velocity = 15,
-	acceleration = -5,
-	damage = 2,
-	collisionbox = {-1, -0.5, -1, 1, 0.5, 1},
-	on_rightclick = function(self, clicker)
-		clicker:set_attach(self.object, "", {x=0,y=0,z=0}, {x=0,y=1,z=0})
-	end,
-	on_step = function(self, obj, pos)
-		local player = self.launcher
-		if player == nil or player:get_player_name() == "" then
-			self.object:remove()
-			return
-		end
-		local dir = player:get_look_dir()
-		local vec = {x=dir.x*16,y=dir.y*16,z=dir.z*16}
-		local yaw = player:get_look_yaw()
-		self.object:setyaw(yaw+math.pi/2)
-		self.object:setvelocity(vec)
-		missile_on_step_auxiliary(self, obj, pos)
-	end,
-})
 
 
-minetest.register_craftitem("vehicles:missile_2_item", {
-	description = S("Missile"),
-	inventory_image = "vehicles_missile_inv.png"
-})
+
 
 minetest.register_craftitem("vehicles:bullet_item", {
 	description = S("Bullet"),
