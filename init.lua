@@ -1296,45 +1296,6 @@ minetest.register_entity("vehicles:jet", {
 
 
 
-vehicles.register_spawner("vehicles:apache", S("Apache Helicopter"), "vehicles_helicopter2_inv.png")
-
-minetest.register_entity("vehicles:helicopter", {
-	visual = "mesh",
-	mesh = "helicopter.b3d",
-	textures = {"vehicles_helicopter.png"},
-	velocity = 15,
-	acceleration = -5,
-	hp_max = 100,
-	animation_speed = 5,
-	physical = true,
-	animations = {
-		gear = {x=1, y=1},
-		nogear = {x=10, y=10},
-	},
-	collisionbox = {-1.2, 0, -1.2, 1.2, 2, 1.2},
-	on_rightclick = function(self, clicker)
-		if self.driver and clicker == self.driver then
-			vehicles.object_detach(self, clicker, {x=1, y=0, z=1})
-		elseif not self.driver then
-			vehicles.object_attach(self, clicker, {x=0, y=4, z=1}, false, {x=0, y=2, z=13})
-		end
-	end,
-	on_punch = vehicles.on_punch,
-	on_step = function(self, dtime)
-		return vehicles.on_step(self, dtime, {
-			speed = 10,
-			decell = 0.95,
-			moving_anim = {x=1, y=20},
-			stand_anim = {x=1, y=1},
-			fly = true,
-			fly_mode = "rise",
-			animation_speed = 35,
-		})
-	end,
-})
-
-vehicles.register_spawner("vehicles:helicopter", S("Helicopter"), "vehicles_helicopter_inv.png")
-
 minetest.register_entity("vehicles:plane", {
 	visual = "mesh",
 	mesh = "plane.b3d",
