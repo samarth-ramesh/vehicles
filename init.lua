@@ -93,26 +93,24 @@ minetest.register_craftitem("vehicles:bullet_item", {
 })
 
 
-minetest.register_entity("vehicles:missile_2", {
-	visual = "mesh",
-	mesh = "missile.b3d",
-	textures = {"vehicles_missile.png"},
-	velocity = 15,
-	acceleration = -5,
-	damage = 2,
-	collisionbox = {0, 0, 0, 0, 0, 0},
-	on_step = function(self, obj, pos)
-		local velo = self.object:getvelocity()
-		if velo.y <= 1.2 and velo.y >= -1.2 then
-			self.object:set_animation({x=1, y=1}, 5, 0)
-		elseif velo.y <= -1.2 then
-			self.object:set_animation({x=4, y=4}, 5, 0)
-		elseif velo.y >= 1.2 then
-			self.object:set_animation({x=2, y=2}, 5, 0)
-		end
-		missile_on_step_auxiliary(self, obj, pos)
-	end,
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
 
 minetest.register_entity("vehicles:water", {
 	visual = "sprite",
